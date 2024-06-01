@@ -44,8 +44,6 @@ class Interaction:
                     new = div.text.split('\n')
                     label = {'drugs': [new[0], new[1]], 'severity': new[3], 'description': new[5], 'extended_discription': new[7]}
                     results.append(label)
-                # print(results)
-                # sleep(20)
                 return results
             except:
                 return None
@@ -53,7 +51,10 @@ class Interaction:
             print(e)
             return None
         finally:
-            self.driver.quit()
+            try:
+                self.driver.quit()
+            except:
+                pass
 
 if __name__ == "__main__":
     drugs = ['Doxycycline', 'Isotretinoin', 'calcium carbonate', 'Amoxycillin']

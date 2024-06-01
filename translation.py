@@ -25,14 +25,5 @@ def translate(medicines, drug_interactions):
     return response.content
 
 if __name__ == "__main__":
-    # from drug_interaction import Interaction
-    # medicines, drugs = getData() 
-    # drugs = ['Doxycycline', 'Isotretinoin', 'calcium carbonate', 'Amoxycillin']
-    # interaction = Interaction()
-    # output = interaction.check(drugs)
-    print('\n\n\n')
-    # if output:
-    #     translation = translate(medicines, output)
-    #     print(translation)
-    # else:
-    #     print('No Interactions Found')
+    translation = translate(['hi', 'hello'], ['no hi', 'no hello'])
+    print(translation)
