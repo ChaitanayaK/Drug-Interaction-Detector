@@ -5,6 +5,7 @@ from drug_interaction import Interaction
 from translation import translate
 from drugstore import DrugStore
 import sqlite3
+from langchain_google_genai import GoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 
@@ -52,7 +53,7 @@ def remove_string(index):
 
 def chat(question, data):
     review_template = """
-        Following is the information about effects of interaction of 2 or more drugs, respond to the question based on the data as well your own knowledge about the subject. Use extra_data for seeking knowledge about the medicines, but main information about interaction is in data:\
+        Following is the information about effects of interaction of 2 or more drugs, respond to the question based on the data as well your own knowledge about the subject. Use extra_data for seeking knowledge about the medicines, but main information about interaction is in data. Try giving response in a list format with bullet points:\
         
         data : {data}\
         extra_data : {extra_data}
@@ -66,7 +67,6 @@ def chat(question, data):
     # llm = GoogleGenerativeAI(model='gemini-pro')
     # chat = llm.invoke(input=messages)
     response = chat(messages)
-
     return response.content
 
 def main():

@@ -8,7 +8,7 @@ load_dotenv()
 
 def translate(medicines, drug_interactions):
     review_template = """
-        Given below is list of medicines with their chemical compounds involved and their drug interactions with name of the drugs, severity of their effects on health of patient, description and extended description of effects, i want you to explain the user in very simpler terms about the side effects the drugs might have. Use names of the medicines instead of the names of chemicals while responding. If multiple interactions are present, then partition each interaction from each other:\
+        Given below is list of medicines with their chemical compounds involved and their drug interactions with name of the drugs, severity of their effects on health of patient, description and extended description of effects, i want you to explain the user in very simpler terms about the side effects the drugs might have. Use names of the medicines instead of the names of chemicals while responding. If multiple interactions are present, then partition each interaction from each other. Give your response point wise in a descriptive manner:\
         
         medicines : {medicines}\
         drug_interactions : {drug_interactions}\
