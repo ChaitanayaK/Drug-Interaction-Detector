@@ -1,0 +1,17 @@
+nums = [2,7,11,15, 6] 
+target = 9
+
+def isSubsequence(target: int, nums: list[int]):
+    nums.sort()
+    l, r = 0, len(nums)-1
+    while l < r:
+        cursSum = nums[l] + nums[r]
+        if cursSum > target:
+            r -= 1
+        elif cursSum < target:
+            l += 1
+        else:
+            return [l, r] 
+    return [0, 0]
+# print(nums)
+print(isSubsequence(target, nums))

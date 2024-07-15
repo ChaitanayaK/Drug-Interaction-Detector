@@ -63,11 +63,12 @@ def chat(question, data):
     prompt_template = ChatPromptTemplate.from_template(review_template)
     messages = prompt_template.format_messages(question=question, data=data, extra_data=st.session_state.extradata)
 
-    chat = ChatOpenAI(temperature=0.7, model='gpt-3.5-turbo')
-    # llm = GoogleGenerativeAI(model='gemini-pro')
-    # chat = llm.invoke(input=messages)
-    response = chat(messages)
-    return response.content
+    # chat = ChatOpenAI(temperature=0.7, model='gpt-3.5-turbo')
+    llm = GoogleGenerativeAI(model='gemini-pro')
+    chat = llm.invoke(input=messages)
+    # response = chat(messages)
+    # return response.content
+    return chat
 
 def main():
     if 'medicines' not in st.session_state:

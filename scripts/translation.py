@@ -23,12 +23,13 @@ def translate(medicines, drug_interactions):
     prompt_template = ChatPromptTemplate.from_template(review_template)
     messages = prompt_template.format_messages(medicines=medicines, drug_interactions=drug_interactions)
 
-    chat = ChatOpenAI(temperature=0.7, model='gpt-3.5-turbo')
-    # llm = GoogleGenerativeAI(model='gemini-pro')
-    # chat = llm.invoke(input=messages)
-    response = chat(messages)
+    # chat = ChatOpenAI(temperature=0.7, model='gpt-3.5-turbo')
+    llm = GoogleGenerativeAI(model='gemini-pro')
+    chat = llm.invoke(input=messages)
+    # response = chat(messages)
 
-    return response.content
+    # return response.content
+    return chat
 
 if __name__ == "__main__":
     translation = translate(['hi', 'hello'], ['no hi', 'no hello'])
